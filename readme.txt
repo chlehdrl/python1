@@ -4,4 +4,4 @@ my
 first
 commit
 yohoo
-socket is diffcult
+socket is difficult
