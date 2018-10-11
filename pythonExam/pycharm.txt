@@ -1,0 +1,643 @@
+num = 1
+while num <= 10:
+    print(num)
+    num+=1
+
+a = 1234 * 4
+b = 123456 / 2
+if a>b  :
+    print(a)
+else:
+    print(b)
+
+
+c=15*8
+d= 15+15+15+15+15+15
+if c> d:
+    print('c > d')
+elif c==d:
+    print('c == d')
+else:
+    print('c < d')
+
+#리스트 목록들의 길이
+family = ['mother','father','han-bit','dong-gi','sung-woo']
+for x in family:
+    print('%s %s' % (x, len(x)))
+
+#리스트출력함수1
+a = [4,5,6,7]
+for i in a:
+    print(i)
+
+for i in range(4, 8):
+    print(i)
+
+#리스트출력함수2
+a_list = [3,4,76,32,53]
+
+def print_list(a):
+    for i in a:
+            print(i)
+print_list(a_list)
+
+#if문
+def add1(x,y):
+    if x > y :
+        print ('x>y')
+    elif x==y:
+        print ('x==y')
+    else :
+        print ('x<y')
+
+add1(10,10)
+add1(20,10)
+add1(20,30)
+
+#재귀함수
+def hap(a, b):
+    print(a+b)
+def gop(a, b):
+    print(a*b)
+def hap_gop(a,b):
+    hap(a,b)
+    gop(a,b)
+hap_gop(20,30)
+
+#카운트다운
+def countdown(n):
+    if n == 0:
+        print("boom!")
+    else:
+        print(n)
+        countdown(n-1)
+countdown(10)
+
+
+#전역변수와 지역변수
+#함수 내부에서의 변수 지정은
+winner='W'
+def ban():
+    global winner #global 변수 지정은 함수 내부에 있더라도 전역변수로 설정시킨다
+    winner ='d'
+    print(winner)
+
+ban()
+print(winner)
+
+#삼각형 넒이 구하기1
+def triangle(l,h):
+    area=l*h/2
+    return area
+a=triangle(12,6)
+print(a)
+
+# 삼각형 넓이 구하기2
+def area_tri():
+	a = int(input('밑변: '))
+	b = int (input('높이: '))
+	c = a * b / 2
+	print('밑변 %s, 높이 %s인 삼각형의 면적은 %s입니다.\n계산식은 "%s*%s/2 = %s"입니다.'  % (a,b,c,a,b,c))
+	return c
+d= area_tri()
+
+#람바형식은 함수를 한줄에 쓸 수 있게 함
+print((lambda a,b: a%b)(3,2))   #출력값 1
+
+# 람바형식을 이용한 제곱
+print(list(map(lambda x: x**2 , range(5))))
+
+# reduce 함수 리스트의 모든 값을 더한다 0+1+2+3+4+5...+100
+from functools import reduce
+print(reduce(lambda x, y: x+y, range(100)))
+# 문자열 좌우전환
+print(reduce(lambda y,x : x+y, '1abcde123'))
+
+#filter함수 걸러낸다
+print(list(filter(lambda x: x%3, range(1222))))
+
+#문자열
+x='banana'
+print(x[0])
+print(x[2:4])
+print(x[:3])
+print(x[3:])
+x='n'+x[1:]
+print(x)
+
+#목록형
+prime = [2,3,7,11]
+prime.append(5)         #목록에 원소 추가
+prime.sort()            #목록 정렬
+print(prime)
+del prime[2]            #del 목록의 원소를 삭제한다
+print(prime)
+prime[0] = 5            #목록의 원소 교체
+print(prime)
+
+#목록형
+orders = ['potato',['pizza','cole','salad'],'hamburger']
+print(orders[1][2][2])              #목록의 1번째 목록의 2번째의 2번째 글자
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+print(matrix)
+
+# 문자열을 목록으로 전환
+characters = []
+sentence = 'Be happy!'
+for i in sentence:
+    characters.append(i)
+print(characters)
+
+# 종합
+aaaaa = [90,85,71]
+bbbbb = [88,72,92]
+ccccc = [93,95,97]
+ddddd = [90,71,70]
+
+students = [aaaaa,bbbbb,ccccc,ddddd]
+for scores in students:
+    total=0
+    for s in scores:
+        total = total + s
+    average = total/3
+    print(scores,total,average)
+
+print('\n')
+import operator
+for scores in students:
+    total=reduce(operator.add, scores)
+    average = total / len(scores)
+    print(scores,total,average)
+
+def magu(x,*rest):                #함수를 정의할 때에 인자에 별표를 붙여두면 튜플로 정의해버린다.
+    print(rest)
+magu(1,2,3,4,5,6,7,78,8)
+
+#튜플 선언법 // 튜플은 리스트와 달리 대괄호[]가 아닌 소괄호()로 묶여 있다.
+t= ('a','b','c')           #괄호를 써도 되고 안써도 된다.
+empty=()                    #원소가 없는 경우는 괄호를 써야 한다.
+one=5,                      #원소가 단 1개인 경우엔 콤마(,)를 찍어주어야 한다.
+print(t)
+print(empty)
+print(one)
+
+
+#튜플의 원소값을 수정할 때에는 문자열에서 했던 것처럼 오려붙이기식으로 해야 한다.
+p=(1,2,3)
+q=p[:1] + (5,) + p[2:]
+print(q)
+r = p[:1], 5, p[2:]
+print(r)
+
+#튜플을 리스트로 리스트를 튜플로 쉽게 바꿀 수도 있다
+p=(1,2,3)
+q=list(p)
+print(q)
+
+#거북이
+import turtle
+s = turtle.Screen()
+t = turtle.Turtle()
+t.pensize(5)
+
+x = -100
+y = 100
+t.penup()
+t.goto(x,y)
+t.pendown()
+
+t.circle(100)
+
+t.penup()
+t.goto(x-60.62, y+65)
+t.pendown()
+t.setheading(-60)
+t.circle(70, 120)
+
+t.penup()
+t.goto(-65,220)
+t.dot(30)
+t.pendown()
+
+t.penup()
+t.goto(-125,220)
+t.dot(30)
+
+
+# x = -100
+# y= 100
+# t.goto(x,y)
+# t.undo()
+#
+# t.penup()
+# t.goto(x,y)
+# t.pendown()
+#
+# t.dot()
+# t.circle(100)
+
+#비트 논리 연산
+a= 25
+b= 15
+print(a&b)         #비트 연산에서의 더하기
+#print(a I b)
+print(a^b)
+print(~-17)
+
+#비트 쉬프트 연산
+print(1<<3)         #숫자 1의 모든 비트를 왼쪽으로 3번 이동시킨다(숫자를 n번 왼쪽으로 이동시키면 2의n승만큼 곱한 것과 같다.
+print(16>>3)        #숫자 16의 모든 비트를 오른쪽으로 3번 이동시킨다.(숫자를 n번 오른쪽으로 이동시키면 2의n승만큼 나눈 것과 같다.
+
+# 비트 마스크 오른쪽에서부터 해당위치의 비트가 0인지 1인지 알려줌 비트 마스크 연산자를 사용해도 원래의 수가 바뀌지는 않음
+x= 1024
+print(1&(x>>10))          #1
+
+x=6       //110
+print(1&(x>>0))           #0
+print(1&(x>>1))           #1
+print(1&(x>>2))           #1
+
+
+#진법 변환
+# 10진법을 2,8,16진법으로
+print(bin(225))             #2진법
+print(oct(555))             #8진법
+print(hex(885))             #16진법
+
+#2,8,16진법을 10진법으로
+xb = "10101010100101011"
+print(int(xb,2))
+xo="332443"
+print(int(xo,8))
+xh = "ACD34E"
+print(int(xh,16))
+
+#비트 표현 오차율
+print(2**10/1000)
+print(2**20/1000000)
+print(2**30/1000000000)
+
+#1억일 뒤의 요일
+print(10**8%7)
+----------------------------------------------------------------------------------------------------------------------
+8월 30일
+#input
+somebody = input("Enter your name :")
+print("Hi",somebody)
+age = int(input("How old r u?"))
+print("10 years later,",somebody,"will be",age+10,"years old")
+
+#문자열*정수
+three="three"
+print(three*3)
+five="five"
+print(five*5)
+
+# 확장문자
+print("\'")
+print("\"")
+print("\a")   #
+print("\b")   #백스페이스
+print("\f")   #
+print("\n")
+print("\r")
+print("\t")   #탭 수평
+print("\v")   #탭 수직
+print("\000") #Null
+
+# www으로부터의 입력
+from urllib.request import urlopen
+f=urlopen('https://www.python.org/')
+print(f.headers)
+html=f.read()
+print(html)
+
+
+# 난수 생성
+import random
+i=0
+i+=1
+print("Random #%d: %d" %(i, random.randint(1,6))) #1이상 6이하인 수 생성
+i+=1
+print("Random #%d: %d" %(i, random.randint(1,6)))
+i+=1
+print("Random #%d: %d" %(i, random.randint(1,6)))
+i+=1
+print("Random #%d: %d" %(i, random.randint(1,6)))
+i+=1
+print("Random #%d: %d" %(i, random.randint(1,6)))
+i+=1
+print("Random #%d: %d" %(i, random.randint(1,6)))
+# 로또생성기
+print("rotto",random.randint(1,45))
+print("rotto",random.randint(1,45))
+print("rotto",random.randint(1,45))
+print("rotto",random.randint(1,45))
+print("rotto",random.randint(1,45))
+print("rotto",random.randint(1,45))
+# if들여쓰기
+score = 80
+if 90 <= score <= 100:
+    print("your score is", score,",A grade");
+elif 80 <= score < 90:
+    print("your score is", score,",B grade");
+elif 70 <= score < 80:
+    print("your score is", score,",C grade");
+elif 60 <= score < 70:
+    print("your score is", score,",D grade");
+else :
+    print("your score is", score,",E grade");
+
+
+# 다중 조건 테스트  #and는 둘 다 만족하여야 함, or는 둘 중 한 가지만 만족되면 됨 not은 조건의 참/거짓 반대
+age=20
+score=95
+if age > 19 and score > 90.0 :
+    print ("You are allowed to enter")
+else:
+    print("Sorry! You are not allowed")
+
+# 윤년 구하기
+print ("Enter the year")
+year=input()
+if int(year)%4==0 and not(int(year)%100==0) or int(year)%400==0:
+    print("윤년입니다.")
+else :
+    print("윤년이 아닙니다.")
+
+
+# 삼항 연산자
+x=20
+if x>10:
+    y=x*2
+else:
+    y=x/2
+print(y)
+#위의 코드와 아래의 코드는 같다
+x=20
+y=x*2 if x>10 else x/2
+print(y)
+#삼각형 구분
+print("가장 짧은 변의 길이 입력")
+x=input()
+print("중간 변의 길이 입력")
+y=input()
+print("가장 긴 변의 길이 입력")
+z=input()
+if int(x)**2+int(y)**2>int(z)**2 :
+    print("예각삼각형")
+elif int(x)**2+int(y)**2 == int(z)**2 :
+    print("직각삼각형")
+elif int(x)**2+int(y)**2<int(z)**2 and int(x)+int(y)<int(z) :
+    print("둔각삼각형")
+else  :
+    print("삼각형아님")
+
+
+# 숫자 없는 List
+animal = ['dog','cat','pig','wolf']
+for i in animal:
+    print("Hi")
+    print("It's animal ",i)
+print("done")
+
+
+# loop문
+for i in range (1,6) :
+    print()
+    print('i=',i,end="")
+    print('Hello, how', end="")
+    if i== 3:
+        continue #break도 있음 컨티뉴는 현재 반복을 중지하고 다음 반복 실행, break는 현재 반복문 중지(즉, 현재 반복과 다음 반복 중지)
+    print ('r u')
+
+
+# 파이썬은 loop문에서 else를 지원
+for i in range(1,6):
+    print (i)
+else: print('End')      #1,2,3,4,5,End 출력 단 반복중에 break를 만나면 else는 실행되지 않음
+
+# 요일구하기
+n=0
+j=0
+print("년.월.일.을 입력하세요")
+year=int(input())
+month=int(input())
+day=int(input())
+preYear = int(year)-1
+n=preYear*365
+for i in range(0,int(year), 4) :
+    j+=1
+j-=1
+for i in range(0,int(year),100) :
+    j-=1
+j+=1
+for i in range(0,int(year),400) :
+    j+=1
+j-=1
+n+=j
+if int(month)>3 and int(year)%4==0 and not(int(year)%100==0) or int(year)%400==0:
+    n+=1
+moon = [31,28,31,30,31,30,31,31,30,31,30,31]
+for i in range(1,int(month),1) :
+    n+=moon[i]
+n+=int(day)
+
+print(n)
+D=n%7
+Day = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일']
+print(Day[D])
+# 별표 반복
+r = int(input("Type the number of rows"))       #몇 줄 반복할 것인가
+c = int(input("Type the number of columns"))    #몇 개 반복할 것인가
+for i in range(1, r+1) :
+    for j in range (1, c+1) :
+        print('*')
+#구구단
+j=1
+while j< 9:
+    j+=1
+    i=1
+    while i<= 9:
+        print("%d+%d=%d" %(i,j,i*j))
+        i+=1
+
+# '*'삼각형 출력 #주어진 n에 따라 높이와 밑변이 n인 직각삼각형
+print("자연수를 입력하세여")
+j=int(input())
+i=0
+while(j>i) :
+    print("*"*i)
+    i+=1
+print("*"*i)
+
+
+소수 판별
+import math
+p=11
+sq=(math.sqrt(p))
+for i in range(2,int(sq)+1,1) :
+    if (p%i==0) :
+        print(i)
+
+# 리스트 자르기
+numbers = [1,3,5,7,9,11]
+print(type(numbers[1]))           #class 'int'
+print(type(numbers[1:4]))         #class 'list'
+
+# 리스트에서 찾기
+alpahbet=['d','y','c','a','e']
+print('b' in alpahbet)            #True가 출력됨          #'in' 키워드 Boolean(true/false) 값으로 리턴
+if 'a' in alpahbet:
+    print("There is 'a'")         #a가 있으므로 There is 'a' 가 출력됨
+else:
+    print("There is not 'a'")
+if 'c' in alpahbet:
+    print ("The index of 'c' is",alpahbet.index('c'))   #The index of 'c' is c의 위치 가 출력됨
+alpahbet_copy = sorted(alpahbet)
+print(alpahbet_copy)
+print(alpahbet)
+jinscore=[80,70,90,60]
+dongscore=[90,60.80,75]
+junscore=[95,90,95,90]
+Allscore=[jinscore,dongscore,junscore]
+print(Allscore)
+print(dongscore[0])
+print(Allscore[1][0])
+#위의 두 출력문은 같은 것을 출력함
+
+
+# 정수로 구성된 리스트에서 가장 작은 값, 가장 큰 값 뽑기
+a=[6,8,5,7,8,73,23,5,6,7,1]
+smaller=a[0]
+for i in range(0,len(a)-1,1) :
+    if smaller>= a[i]:
+        smaller=a[i]
+print(smaller)
+bigger=a[0]
+for i in range(0,len(a)-1,1) :
+    if bigger<=a[i]:
+        bigger=a[i]
+print(bigger)
+
+#버블정렬 구현                #sort와 같은 기능
+array=[45,633,235,23,2,5,7,9,56,43,365]
+for i in range(len(array)-1):
+    for j in range(len(array)-1):
+        if array[j] > array[j+1]:
+            temp = array[j+1]
+            array[j+1] = array[j]
+            array[j] = temp
+print(array)
+
+# 사전
+dic = {2015123:"Alice", 2015200:"Bob","KMU":"JeongReung"}
+for key in dic:
+    print (key, "'s value is ", dic[key])
+print()
+for key, value in dic.items() :
+    print (key,"'s value is ", value)
+# 집합연산
+A = {'a','b','c',1,2}
+B = {'a','c','d',3,4}
+print ("A =",A)
+print ("B =",B)
+print ("A union B =", A|B)          #합집합
+print ("A minus B =",A-B)           #차집합
+
+
+# 함수호출                          #호출자, 피호출자
+def f1() :
+    print("f1 stars")
+    f2()
+    print("f1 ends")
+def f2() :
+    print("f2 stars")
+    f3()
+    print("f2 ends")
+def f3() :
+    print("f3 stars")
+    print("f3 ends")
+f1()
+# 함수는 호출될 때 독자적 메모리 공간이 할당됨
+# 함수가 종료될 때, 할당되었던 메모리 공간은 소멸됨
+# -따라서 이 메모리 공간을 사용하고 있던 모든 변수 및 인자도 동시 소멸됨
+
+
+
+
+class Ball:
+    def __init__(self, color, size, direction):
+        self.color = color
+        self.size = size
+        self.direction = direction
+    def __del__(self):
+        print("Class is deleted!")
+    def __str__(self):
+        msg = "Hi, I'm " + self.size + "" + self.color + "Ball!"
+        return msg
+myBall = Ball("red","small","down")
+print(myBall.color)
+
+# 정적 메서드와 클래스 메서드
+class CounterManager:
+    insCount = 0
+    def __init__(self) :
+        CounterManager.insCount += 1
+    def staticPrintCount() :
+        print("Instance Count:me", CounterManager.insCount)
+    SPrintCount = staticmethod(staticPrintCount)
+    def classPrintCount(cls) :
+        print("Instance Count: cl",CounterManager.insCount)
+    CPrintCount = classmethod(classPrintCount)
+A,b,c= CounterManager(), CounterManager(), CounterManager()
+CounterManager.SPrintCount()
+b.SPrintCount()               # 정적 메서드로 출력
+CounterManager.CPrintCount()
+c.SPrintCount()               # 클래스 메서드로 출력
+
+
+# 연산자 중복 정의
+class NumBox:
+    def __init__(self,num):
+        self.Num = num
+    def __add__(self, num):
+        self.Num +=num;
+n = NumBox(1)
+n +20
+# 다형성 둘 다 getArea()라는 메서드를 가지고 있지만 다르게 수행한다
+class Triangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    def getArea(self):
+        area = self.width * self.heihjt /2.0
+        return area
+class Square:
+    def __init__(self, size):
+        self.size = size
+        def getArea(self):
+            area = self.size * self.size
+            return area
+# 클래스를 통한 출력
+class Employee:
+    def __init__(self,name,age,gender,salary, hiredate):
+        self.name = name
+        self.age = age
+        self.gender = gender
+        self.salary = salary
+        self.hiredate = hiredate
+    def __str__(self):
+        msg= "name "+self.name+" age " + self.age+" gen " + self.gender+' sal '+self.salary+' hir '+self.hiredate
+        return msg
+Person1=Employee('dong','18','man','8000','2018.9.6')
+print(Person1)
+
+import subprocess
+subprocess.call("cmd")
+
+
+ #url 띄우기
+import webbrowser
+url="http://www.google.co.kr"
+webbrowser.open(url)
