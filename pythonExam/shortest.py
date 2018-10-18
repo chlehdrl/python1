@@ -1,12 +1,12 @@
 short = []
 index = ['house','hairshop','market','academy','restaurant','bank','school']
 short.append([0,5,10,9,999,999,999])
-short.append([0,5,10,9,999,999,999])
-short.append([0,5,10,9,999,999,999])
-short.append([0,5,10,9,999,999,999])
-short.append([0,5,10,9,999,999,999])
-short.append([0,5,10,9,999,999,999])
-short.append([0,5,10,9,999,999,999])
+short.append([4,0,3,999,999,11,999])
+short.append([10,3,0,7,3,10,999])
+short.append([9,999,7,0,999,7,12])
+short.append([999,999,3,999,0,4,999])
+short.append([999,11,10,7,4,0,2])
+short.append([999,,999,999,12,2,0])
 
 
 
@@ -21,7 +21,7 @@ def convert_table(short,n):
 
 def calc_table(short):
 	for n in range(2, len(short)):
-		for i in range(len(short) - ):
+		for i in range(len(short) - n):
 			temp = []
 			for j in range(n):
 			if j == (n-1):
