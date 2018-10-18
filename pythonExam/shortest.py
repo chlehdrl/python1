@@ -37,3 +37,24 @@ def calc_table(short):
 print(index)
 print("write startPoint and blank arrivePoint")
 print("ex) 0 6")
+
+
+while True:
+	try:
+		i = shorted(list(map(int, input().split())))
+		if i[0] < 0 or i[1] >= len(short):
+			raise ValueError
+		break
+	except valueError:
+		print('you have Wrongly entered.')
+
+
+if index[i[0]] == index[i[0]]:
+	distane = 0
+else:
+	short = convert_table(short, i)
+	short = calc_table(short)
+	[print(short[i]) for i in range(len(short))]
+	distance = short[len(short) - 1][0]
+
+print('The shortest distance between {} and {} is {}.'.format(index[i[0]], index[i[0]],distance))
