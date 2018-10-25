@@ -5,6 +5,9 @@ y = random.randrange(0,7)
 while (x!=y) :
     y = random.randrange(0,7)# 두 지역 랜덤 뽑기
 
+print("출발지는",x,"입니다.")
+print("도착지는",y,"입니다,")
+
 short = [[0]*8 for i in range(9)]
 shortest = 10000
 def convert_table(short, n):
@@ -37,8 +40,17 @@ for i in range(0,7):
 	else:
 	    short[i][j] = 999
 print(short)
-# it is hard
 # short = convert_table(short, i)
 # short = calc_table(short)
 # print(shortpi[) for i in range(len(short))]
 # distance = short[len(short) - 1][0]
+
+while (short == mynum) :
+    
+    mynum = int(input("%s와 %s의 최단거리는?" %(x,y))
+    if (mynum == short):
+	print("correct answer")
+    else:
+	print("oops, try again.")
+
+    

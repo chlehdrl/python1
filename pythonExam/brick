@@ -1,0 +1,10 @@
+Class Paddle(GameObject):
+    def __init__(self, canvas, x, y):
+	self.width = 80
+	self.height = 10
+	item = canvas.create_rectangle(	x - self.width / 2,
+					y - self.height / 2,
+					x + self.width / 2.
+					y + self.height / 2,
+					fill = 'blue')
+	super(Paddle, self).__init__(canvas, item)
