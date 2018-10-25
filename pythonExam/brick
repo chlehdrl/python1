@@ -8,3 +8,14 @@ Class Paddle(GameObject):
 					y + self.height / 2,
 					fill = 'blue')
 	super(Paddle, self).__init__(canvas, item)
+
+
+    def get_position(self):
+	return.canvas.coords(self.item)
+
+    def move(self, velocity):
+	cords = self.get_position()
+	width = self.canvas.winfo_width()
+	if cords[0] + velocity >= 0 and cords[2] + velocity <= width: #coords == [x1,y1,x2,y2]
+	    suer(Paddle, self).move(velocity, 0)
+
