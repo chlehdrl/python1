@@ -1,7 +1,7 @@
 import tkinter as tk
 
 
-Class Game(tk.Frame):
+class Game(tk.Frame):
     def __init__(self,master):
 	super(Game, self).__init__(master)
 	self.lives = 3
@@ -90,7 +90,7 @@ Class Game(tk.Frame):
 	objects = [self.items[x] for x in items if x in self.items]
 	self.ball.collide(objects)
 
-Class GameObject:
+class GameObject:
     def __init__(self, canvas, item(:
 	self.canvas = canvas
 	self.item = item
@@ -105,7 +105,7 @@ Class GameObject:
 	self.canvas.delete(self.item)
 
 
-Class Paddle(GameObject):
+class Paddle(GameObject):
     def __init__(self, canvas, x, y):
 	self.width = 80
 	self.height = 10
@@ -129,7 +129,7 @@ Class Paddle(GameObject):
 		self.ball.move(velocity, 0)
 
 
-Class Ball(GameObject):
+class Ball(GameObject):
     def __init__(self, canvas, x, y):
 	self.radius = 10
 	self.direction = [1, -1]
@@ -170,7 +170,7 @@ Class Ball(GameObject):
 		game_object.hit()
 
 
-Class Brick(GameObject):
+class Brick(GameObject):
     COLORS = {1:'#999999', 2:'#555555', 3: '#222222'}
 
     def __init__(self, canvas, x, y, hits):
@@ -189,7 +189,7 @@ Class Brick(GameObject):
 	self.hits -= 1
 	if self.hits ==0:
 	    self.delete()
-	else"
+	else:
 	    self.canvas.itemconfig(self.item,
 				   fill=Brick.COLORS[self.hits])
 

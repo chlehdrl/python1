@@ -6,7 +6,7 @@ short.append([10,3,0,7,3,10,999])
 short.append([9,999,7,0,999,7,12])
 short.append([999,999,3,999,0,4,999])
 short.append([999,11,10,7,4,0,2])
-short.append([999,,999,999,12,2,0])
+short.append([999,999,999,12,999,2,0])
 
 
 
@@ -20,17 +20,17 @@ def convert_table(short,n):
 
 
 def calc_table(short):
-	for n in range(2, len(short)):
-		for i in range(len(short) - n):
-			temp = []
-			for j in range(n):
-			if j == (n-1):
-				temp.append(short[i+j+1][i])
-			else:
-				temp.appened(short[i+j+1][i] + short[i+n][i+j+1])
-		short[i+n][i] = min(temp)
-		del temp
-	return short
+    for n in range(2, len(short)):
+        for i in range(len(short) - n):
+            temp = []
+            for j in range(n):
+                if j == (n-1):
+                    temp.append(short[i+j+1][i])
+                else:
+                    temp.appened(short[i+j+1][i] + short[i+n][i+j+1])
+            short[i+n][i] = min(temp)
+            del temp
+    return short
 
 
 
