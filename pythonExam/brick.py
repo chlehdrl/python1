@@ -1,4 +1,4 @@
-import tkinter as tk
+from Tkinter import *
 
 
 class Game(tk.Frame):
@@ -91,7 +91,7 @@ class Game(tk.Frame):
 	self.ball.collide(objects)
 
 class GameObject:
-    def __init__(self, canvas, item(:
+    def __init__(self, canvas, item):
 	self.canvas = canvas
 	self.item = item
 
@@ -111,7 +111,7 @@ class Paddle(GameObject):
 	self.height = 10
 	item = canvas.create_rectangle(	x - self.width / 2,
 					y - self.height / 2,
-					x + self.width / 2.
+					x + self.width / 2,
 					y + self.height / 2,
 					fill = 'blue')
 	super(Paddle, self).__init__(canvas, item)
@@ -153,7 +153,7 @@ class Ball(GameObject):
     def collide(self, game_objects):
 	coords = self.get_position()
 	x = (coords[0] + coords[2]) * 0.5
-	if len(game_object > 1:
+	if len(game_object) > 1:
 	    self.direction[1] *= -1
 	elif len(game_objects) == 1:
 	    game_object = game_objects[0]

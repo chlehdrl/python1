@@ -1,5 +1,5 @@
-short = []
-index = ['house','hairshop','market','academy','restaurant','bank','school']
+short = [0]
+index = ['0.house','1.hairshop','2.market','3.academy','4.restaurant','5.bank','6.school']
 short.append([0,5,10,9,999,999,999])
 short.append([4,0,3,999,999,11,999])
 short.append([10,3,0,7,3,10,999])
@@ -11,12 +11,12 @@ short.append([999,999,999,12,999,2,0])
 
 
 def convert_table(short,n):
-	for i in range(len(short)):
-		short[i].insert(0, short[i].pop(n[0]))
-		short[i].insert(len(short) - 1, short[i].pop(n[1]))
-	short.insert(0, short.pop(n[0]))
-	short.insert(len(short) - 1, short.pop(n[1]))
-	return short
+    for i in range(len(short)):
+	short[i].insert(0, short[i].pop(n[0]))
+	short[i].insert(len(short) - 1, short[i].pop(n[1]))
+    short.insert(0, short.pop(n[0]))
+    short.insert(len(short) - 1, short.pop(n[1]))
+    return short
 
 
 def calc_table(short):
@@ -40,21 +40,20 @@ print("ex) 0 6")
 
 
 while True:
-	try:
-		i = shorted(list(map(int, input().split())))
-		if i[0] < 0 or i[1] >= len(short):
-			raise ValueError
-		break
-	except valueError:
-		print('you have Wrongly entered.')
+    try:
+	i = sorted(list(map(int, input().split())))
+	if i[0] < 0 or i[1] >= len(short):
+	    raise ValueError
+	break
+    except ValueError:
+	print('you have Wrongly entered.')
 
 
-if index[i[0]] == index[i[0]]:
-	distane = 0
+if index[i[0]] == index[i[1]]:
+    distane = 0
 else:
-	short = convert_table(short, i)
-	short = calc_table(short)
-	[print(short[i]) for i in range(len(short))]
-	distance = short[len(short) - 1][0]
+    short = convert_table(short, i)
+    short = calc_table(short)
+    distance = short[len(short) - 1][0]
 
-print('The shortest distance between {} and {} is {}.'.format(index[i[0]], index[i[0]],distance))
+print('The shortest distance between',index[i[0]],' and',index[i[1]],' is.',distance)
